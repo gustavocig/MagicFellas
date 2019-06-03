@@ -44,8 +44,6 @@ gem 'pry-rails'
 
 gem 'rest-client'
 
-
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
