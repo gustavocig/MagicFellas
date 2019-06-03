@@ -34,11 +34,16 @@ gem 'cancancan'
 gem 'devise', '~> 4.5'
 gem 'dotenv-rails'
 
+gem 'freya', github: 'brunocavalcante/freya', ref: 'd1bff7c83d81a7cc1ef99402c5669fb0016bb335'
+
 gem 'pry'
 gem 'pry-awesome_print'
 gem 'pry-byebug'
 gem 'pry-doc'
 gem 'pry-rails'
+
+gem 'rest-client'
+
 
 
 # Use Capistrano for deployment
