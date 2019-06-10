@@ -7,6 +7,10 @@ ruby '2.6.3'
 gem 'rails', '~> 6.0.0.rc1'
 # PostgreSQL gem
 gem 'pg'
+# MongoDB Ruby driver
+gem 'mongo', '~> 2.8.0'
+# Mongoid Gem
+gem 'mongoid', '~> 7.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
