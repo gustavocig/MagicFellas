@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one_attached :avatar
+
+  validates :name, presence: true, uniqueness: true
+
   def decks
     Deck.where(user_id: id)
   end
