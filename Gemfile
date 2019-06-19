@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+gem "azure-storage", require: false
+
 gem 'cancancan'
 gem 'devise', '~> 4.5'
 gem 'dotenv-rails'
