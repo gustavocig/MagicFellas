@@ -1,9 +1,8 @@
 class Api::V1::UsersController < ApplicationController
   before_action :find_user, only: :show
-  before_action :get_users, only: :index
 
 	def index
-    render_json @users.map(&:to_json)
+    render_json User.all.map(&:to_json)
   end
 
   def show
