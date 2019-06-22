@@ -50,6 +50,8 @@ gem 'pry-rails'
 
 gem 'rest-client'
 
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

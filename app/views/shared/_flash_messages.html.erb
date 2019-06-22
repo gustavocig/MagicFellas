@@ -1,0 +1,17 @@
+<% if flash[:success] %>
+  <div class="alert alert--success padded--large padded--text section section--medium">
+    <%= flash[:success].html_safe %>
+  </div>
+<% elsif flash[:notice] %>
+  <div class="alert alert--success padded--large padded--text section section--medium">
+    <%= flash[:notice].html_safe %>
+  </div>
+<% elsif flash[:error] && flash[:error].is_a?(String) %>
+  <div class="alert alert--error padded--large padded--text section section--medium">
+    <%= flash[:error].html_safe %>
+  </div>
+<% elsif flash[:alert] %>
+  <div class="alert alert--error padded--large padded--text section section--medium">
+    <%= flash[:alert].html_safe %>
+  </div>
+<% end %>

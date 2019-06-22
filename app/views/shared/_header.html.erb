@@ -1,0 +1,38 @@
+<div class="header no-print">
+  <ul class="header__menu">
+    <li class="header__item header__item--logo">
+      <%= image_tag 'logo.png' %>
+    </li>
+
+    <li class="header__search omnisearch omnisearch--lighter omnisearch--square hide-mobile">
+      <%= form_tag search_path, method: :get, class: 'omnisearch__form' do %>
+        <%= text_field_tag :q, nil, class: 'omnisearch__input', placeholder: 'Search for cards' %>
+        <i class="material-icons omnisearch__icon">search</i>
+      <% end %>
+    </li>
+
+    <li class="header__user dropdown dropdown--toggable dropdown--animated">
+      <%= link_to '#', class: 'header__item dropdown__toggle' do %>
+        <div class="flexbox flexbox--vcentered">
+          <%= user_avatar(current_user) %>
+          <i class="material-icons">expand_more</i>
+        </div>
+      <% end %>
+      <ul class="list-unstyled dropdown__menu">
+        <li class="header__menu-item">
+          Welcome, <br/>
+          <div class="ellipsis"><b><%= current_user.name %></b></div>
+        </li>
+        <li>
+          <%=  %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="icon icon_close_alt icon--left"></i>
+            <%= t(:logout) %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

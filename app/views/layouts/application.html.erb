@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Magicfellas</title>
+    <title>Gocatalog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <% unless current_user.nil? %>
+      <%= render 'shared/header' %>
+      <%= render 'shared/nav' %>
+
+      <div id="content" class="nav__content">
+        <% flash_messages %>
+
+        <% if content_for?(:title) || content_for(:toolbar) %>
+          <h1 class="page-header">
+            <% if content_for?(:breadcrumbs) %>
+              <div class="breadcrumbs section section--small">
+                &larr; <%= yield :breadcrumbs %>
+              </div>
+            <% end %>
+
+            <%= yield :title %>
+
+            <% if content_for?(:toolbar) %>
+              <div class="toolbar"><%= yield :toolbar %></div>
+            <% end %>
+          </h1>
+        <% end %>
+      <% end %>
+
+      <%= yield %>
+
+      <%= yield :append_extra %>
+    </div>
   </body>
 </html>

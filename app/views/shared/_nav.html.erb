@@ -1,0 +1,17 @@
+<div class="nav no-print" id="menu">
+  <ul class="list-unstyled nav__menu">
+    <li>
+      <%= link_to root_path, { class: "#{'active' if @controller == 'dashboard'}" } do %>
+        <i class="material-icons icon">home</i> Dashboard
+      <% end %>
+    </li>
+  </ul>
+  <h5 class="nav__subtitle">User</h5>
+  <ul class="list-unstyled nav__menu">
+    <li>
+      <%= link_to '#', { class: "#{'active' if @controller == 'users'}" } do %>
+        <i class="material-icons icon">games</i> Decks
+      <% end %>
+    </li>
+  </ul>
+</div>

@@ -56,9 +56,9 @@ class User < ApplicationRecord
       id:                 id,
       avatar_url:         avatar,
       name:               name,
-      deck_ids:           user_decks.map(&:deck_ids),
+      deck_ids:           deck_ids,
       num_of_decks:       user_decks.size,
-      total_num_of_cards: user_decks.map(&:count_decks).sum
+      total_num_of_cards: count_decks
     }
   end
 end
