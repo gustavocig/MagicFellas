@@ -6,4 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create name: 'TeleFellas', password: 'magicfellas', email: 'distribuidos@magic.com'
+user = User.where(name: 'TeleFellas').first_or_create do |u|
+  user.password = 'magicfellas'
+  user.email = 'distribuidos@magic.com'
+end
+
+cards = Requester.cards['data'].sample(60)
+Deck.create user_id: user.id, cards: cards
