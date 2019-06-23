@@ -1,2 +1,9 @@
 <% content_for :title, 'Cards' %>
 
+<% @cards['data']&.each do |card| %>
+  <!-- <div> -->
+    <%= image_tag card['image_uris']['border_crop'], Deck::IMAGE_RATIO %>
+  <!-- </div> -->
+<% end %>
+
+<%= render 'shared/pagination_elems' %>
