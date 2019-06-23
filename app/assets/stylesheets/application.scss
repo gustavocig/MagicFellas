@@ -41,3 +41,8 @@ a#current-page {
   background-color: black;
   background-image: linear-gradient(135deg, rgba(241, 18, 18, 0.3), transparent)
 }
+
+.header__item.header__item--logo img {
+  height: 69px;
+  margin-top: -12px;
+}
