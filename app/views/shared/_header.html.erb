@@ -14,7 +14,11 @@
     <li class="header__user dropdown dropdown--toggable dropdown--animated">
       <%= link_to '#', class: 'header__item dropdown__toggle' do %>
         <div class="flexbox flexbox--vcentered">
-          <%= user_avatar(current_user) %>
+          <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, size: '60x30' %>
+          <% else %>
+            <%= user_avatar(current_user) %>
+          <% end %>
           <i class="material-icons">expand_more</i>
         </div>
       <% end %>
@@ -22,9 +26,6 @@
         <li class="header__menu-item">
           Welcome, <br/>
           <div class="ellipsis"><b><%= current_user.name %></b></div>
-        </li>
-        <li>
-          <%=  %>
         </li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
