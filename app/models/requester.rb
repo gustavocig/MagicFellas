@@ -5,6 +5,9 @@ class Requester
   AUTOCOMPLETE_ENDPOINT = "#{CARDS_ENDPOINT}/autocomplete".freeze
   RANDOM_ENDPOINT = "#{CARDS_ENDPOINT}/random".freeze
 
+  SELECTED_PARAMS = %w[id name lang image_uris scryfall_uri mana_cost
+                       rarity artist prices]
+
   class << self
     def cards(options = {})
       options[:page] ||= 1
@@ -32,6 +35,10 @@ class Requester
 
     def random_card
       JSON.parse(RestClient.get(RANDOM_ENDPOINT))
+    end
+
+    def formatted_request!(request)
+      request.slice! *SELECTED_PARAMS
     end
 
     def true_da_true
