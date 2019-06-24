@@ -29,6 +29,26 @@ class CardsController < ApplicationController
     render 'user/index'
   end
 
+  def add_to_deck
+    return if params[:deck].nil? || params[:card].nil?
+
+    deck = Deck.find params[:deck]
+    card = params[:card].permit!.to_h
+    deck.cards << card
+
+    deck.save
+  end
+
+  def remove_from_deck
+    return if params[:deck].nil? || params[:card].nil?
+
+    deck = Deck.find params[:deck]
+    selected_index = deck.cards.index { |card| card[:id] == params[:card][:id] }
+    deck.cards.delete_at selected_index
+
+    deck.save
+  end
+
   def format_cards!(cards)
     cards&.each do |card|
       Requester.formatted_request! card

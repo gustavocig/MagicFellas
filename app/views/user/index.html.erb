@@ -1,5 +1,5 @@
 <% content_for :title, 'Cards' %>
 
-<%= render 'shared/cards', cards: @cards['data'] %>
+<%= render 'shared/cards', cards: @cards['data'], decks: current_user.decks %>
 
 <%= render 'shared/pagination_elems', path: request.path_parameters[:action], path_params: request.query_parameters %>

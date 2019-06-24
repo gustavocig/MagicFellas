@@ -13,4 +13,4 @@ end
 
 Deck.create user_id: user.id, cards: Requester.cards['data'].sample(60)
 Deck.create user_id: user.id, cards: Requester.cards['data'].sample(60)
-Deck.create user_id: user.id, cards: Requester.cards['data'].sample(60)
+Deck.create user_id: user.id, cards: []

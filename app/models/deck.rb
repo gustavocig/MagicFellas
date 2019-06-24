@@ -27,7 +27,7 @@ class Deck
 
   def unique_deck_name_by_user
     user = User.find user_id
-    user_deck_names = user.decks.pluck(:name)
+    user_deck_names = user.decks.select { |deck| deck.id != id }.pluck(:name)
 
     return unless user_deck_names.include? name
 

@@ -15,11 +15,22 @@
             </a>
           </div>
           <div class='card-header-actions'>
-            
+            <% decks.each do |deck| %>
+              <div>
+                <%= "#{deck.name}:" %> 
+                <%= link_to card_remove_path(card: card, deck: deck.id), remote: true do %>
+                  <i class='material-icons icon'>remove</i>
+                <% end %>
+                <%= link_to card_add_path(card: card, deck: deck.id), remote: true do %>
+                  <i class='material-icons icon'>add</i>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class='card-body'>
-          
+          <div>Rarity - <%= card['rarity'] %></div>
+          <div>Artist - <%= card['artist'] %></div>
         </div>
       </div>
     </div>

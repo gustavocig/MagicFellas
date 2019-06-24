@@ -34,13 +34,15 @@
 }
 
 .card-header-title {
-  width: 70%;
+  width: 60%;
+  float: left
+
 }
 
 .card-header-actions {
-  width: 30%
+  width: 40%;
+  float: right;
 }
 
 .card-body {
-  
 }
