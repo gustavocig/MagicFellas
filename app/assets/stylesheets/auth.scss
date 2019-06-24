@@ -1,5 +1,4 @@
 .auth {
-  background-image: image-url('splash/stardust.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -23,7 +22,7 @@
 }
 .auth__box {
   position: absolute;
-  top: 50%;
+  top: 35%;
   height: 340px;
   margin-top: -180px;
   left: 50%;
@@ -31,6 +30,7 @@
   margin-left: -180px;
   z-index: 2;
   text-align: center;
+  color: white;
 }
 .auth__logo {
   width: 310px;
@@ -65,4 +65,12 @@
   .auth-body {
     overflow: hidden;
   }
+}
+
+label {
+  color: white
+}
+
+.devise-page {
+  color: rgb(255, 255, 254)
 }

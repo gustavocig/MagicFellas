@@ -1,0 +1,12 @@
+$(document).on('turbolinks:load', function() {
+  let authPage = $('.auth')
+
+  if(authPage) {
+    let imageArray = ["<%= asset_path('splash/splash1.jpeg') %>",
+                      "<%= asset_path('splash/splash2.jpeg') %>",
+                      "<%= asset_path('splash/splash3.jpeg') %>"]
+    let randomIndex = Math.floor(Math.random() * 3)
+  
+    authPage.css('background-image',"url(" + imageArray[randomIndex] + ")")
+  }
+});

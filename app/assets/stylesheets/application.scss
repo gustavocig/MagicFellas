@@ -46,3 +46,11 @@ a#current-page {
   height: 69px;
   margin-top: -12px;
 }
+
+html .btn {
+  background-color: rgba(206, 76, 1, 0.78);
+}
+
+html .btn:hover {
+  background-color: rgba(148, 54, 0, 0.78);
+}
