@@ -1,9 +1,5 @@
 <% content_for :title, 'Cards' %>
 
-<% @cards['data']&.each do |card| %>
-  <!-- <div> -->
-    <%= image_tag card['image_uris']['border_crop'], Deck::IMAGE_RATIO %>
-  <!-- </div> -->
-<% end %>
+<%= render 'shared/cards', cards: @cards['data'] %>
 
-<%= render 'shared/pagination_elems' %>
+<%= render 'shared/pagination_elems', path: request.path_parameters[:action], path_params: request.query_parameters %>

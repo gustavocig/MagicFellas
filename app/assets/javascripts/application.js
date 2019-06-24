@@ -17,5 +17,3 @@
 //= require freya
 //= require auth_image
 //= require_tree .
-
-

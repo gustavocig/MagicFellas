@@ -1,6 +1,6 @@
 class Deck
   include Mongoid::Document
-  IMAGE_RATIO = { width: '320', height: '451' }.freeze
+  IMAGE_RATIO = { width: '280', height: '395' }.freeze
 
   field :user_id, type: Integer
   field :cards, type: Array

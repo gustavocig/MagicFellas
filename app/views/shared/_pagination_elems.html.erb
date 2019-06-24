@@ -1,15 +1,35 @@
-<div class='pagination'>
-  <div class='page'>
-    <%= link_to @first_page, cards_index_path(page: @first_page), class: 'active' if @first_page %>
-    <% if @first_page %>
-      <a class='disabled'>...</a>
-    <% end %>
-    <%= link_to @previous_page, cards_index_path(page: @previous_page), class: 'active' if @previous_page %>
-    <a class='disabled' id='current-page'><%= @current_page %></a>
-    <%= link_to @next_page, cards_index_path(page: @next_page), class: 'active' if @next_page %>
-    <% if @final_page %>
-      <a class='disabled'>...</a>
-    <% end %>
-    <%= link_to @final_page, cards_index_path(page: @final_page), class: 'active' if @final_page %>
+<% case path %>
+<% when 'search' %>
+  <div class='pagination'>
+    <div class='page'>
+      <%= link_to @first_page, cards_search_path(q: path_params[:q], page: @first_page), class: 'active' if @first_page %>
+      <% if @first_page %>
+        <a class='disabled'>...</a>
+      <% end %>
+      <%= link_to @previous_page, cards_search_path(q: path_params[:q], page: @previous_page), class: 'active' if @previous_page %>
+      <a class='disabled' id='current-page'><%= @current_page %></a>
+      <%= link_to @next_page, cards_search_path(q: path_params[:q], page: @next_page), class: 'active' if @next_page %>
+      <% if @final_page %>
+        <a class='disabled'>...</a>
+      <% end %>
+      <%= link_to @final_page, cards_search_path(q: path_params[:q], page: @final_page), class: 'active' if @final_page %>
+    </div>
   </div>
-</div>
+<% when 'index' %>
+  <div class='pagination'>
+    <div class='page'>
+      <%= link_to @first_page, cards_index_path(page: @first_page), class: 'active' if @first_page %>
+      <% if @first_page %>
+        <a class='disabled'>...</a>
+      <% end %>
+      <%= link_to @previous_page, cards_index_path(page: @previous_page), class: 'active' if @previous_page %>
+      <a class='disabled' id='current-page'><%= @current_page %></a>
+      <%= link_to @next_page, cards_index_path(page: @next_page), class: 'active' if @next_page %>
+      <% if @final_page %>
+        <a class='disabled'>...</a>
+      <% end %>
+      <%= link_to @final_page, cards_index_path(page: @final_page), class: 'active' if @final_page %>
+    </div>
+  </div>
+<% end %>
+

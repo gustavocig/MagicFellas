@@ -6,7 +6,7 @@ class CardsController < ApplicationController
 
     @has_more_pages = @cards['has_more']
     @total_cards = @cards['total_cards']
-    @cards_per_page = @cards['data'].size
+    @cards_per_page = @cards['data']&.size
 
     format_cards! @cards['data']
     set_pagination
@@ -15,10 +15,22 @@ class CardsController < ApplicationController
   end
 
   def search
+    @current_page = params[:page]&.to_i || 1
+    
+    @cards = Requester.card_search(params[:q], {page: @current_page})
+
+    @has_more_pages = @cards['has_more']
+    @total_cards = @cards['total_cards']
+    @cards_per_page = @cards['data']&.size
+
+    format_cards! @cards['data']
+    set_pagination
+
+    render 'user/index'
   end
 
   def format_cards!(cards)
-    cards.each do |card|
+    cards&.each do |card|
       Requester.formatted_request! card
     end
   end

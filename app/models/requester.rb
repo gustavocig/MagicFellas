@@ -23,9 +23,16 @@ class Requester
       options[:page] ||= 1
       options = remove_params_except(options, %i[order dir page q])
 
-      JSON.parse(RestClient.get(SEARCH_ENDPOINT, params: options))
+      begin
+        request = RestClient.get(SEARCH_ENDPOINT, params: options)
+      rescue RestClient::NotFound
+        request = {}.to_json
+      end
+
+      JSON.parse(request)
     end
 
+    # TODO: Add the result from this request as a dropdown in the search bar via AJAX
     def autocomplete_card_search(card_name)
       options = { q: card_name }
       answer = RestClient.get(AUTOCOMPLETE_ENDPOINT, params: options)
