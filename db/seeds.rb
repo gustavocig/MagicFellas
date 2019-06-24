@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.where(name: 'TeleFellas').first_or_create do |u|
-  user.password = 'magicfellas'
-  user.email = 'distribuidos@magic.com'
+  u.password = 'magicfellas'
+  u.email = 'distribuidos@magic.com'
 end
 
 Deck.create user_id: user.id, cards: Requester.cards['data'].sample(60)
