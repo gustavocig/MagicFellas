@@ -1,0 +1,48 @@
+// Place all the styles related to the cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cards-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card {
+  max-width: 280px;
+  margin: 10px;
+  padding: 15px;
+  background-color: rgb(221, 221, 221);
+  overflow-wrap: break-word;
+}
+
+.card a {
+ color: rgba(224, 61, 0, 0.83);
+}
+
+.card:hover {
+  background-color: rgba(195, 195, 195, 0.72);
+}
+
+.card-elem {
+  
+}
+
+.card-header {
+  
+}
+
+.card-header-title {
+  width: 60%;
+  float: left
+
+}
+
+.card-header-actions {
+  width: 40%;
+  float: right;
+}
+
+.card-body {
+}

@@ -1,0 +1,27 @@
+<% content_for :title, 'Decks' %>
+<% content_for :toolbar do %>
+  <%= new_link_to new_deck_path %>
+<% end %>
+
+<div class="block">
+  <div class="block__body">
+    <table class="table table--singleaction">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cards Quantity</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @results.each do |r| %>
+          <tr class='table__row'>
+            <td><%= link_to r.name, deck_path(r) %></td>
+            <td><%= r.cards.count %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

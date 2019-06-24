@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   root to: 'user#index'
-  get '/search', to: 'search#index', as: :search
+
+  get '/search', to: 'cards#search', as: :cards_search
+  get '/cards', to: 'cards#index', as: :cards_index
+  get '/remove_from_deck', to: 'cards#remove_from_deck', as: :card_remove
+  get '/add_to_deck', to: 'cards#add_to_deck', as: :card_add
+
+  resources :decks
 
   namespace :api do
   	namespace :v1 do

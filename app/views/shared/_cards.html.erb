@@ -1,0 +1,38 @@
+<div class='cards-container'>
+  <% cards&.each do |card| %>
+    <% next if card.nil? %>
+
+    <div class='card'>
+      <!-- Would be a good idea to use a placeholder image when API doesn't return a image -->
+      <% if card['image_uris'].present? %>
+        <%= image_tag(card['image_uris']['border_crop'], Deck::IMAGE_RATIO) %>
+      <% end %>
+      <div class='card-elem'>
+        <div class='card-header'>
+          <div class='card-header-title'>
+            <a href="<%= card['scryfall_uri'] %>">
+              <%= "#{card['name']} (#{card['lang']})" %>
+            </a>
+          </div>
+          <div class='card-header-actions'>
+            <% decks.each do |deck| %>
+              <div>
+                <%= "#{deck.name}:" %> 
+                <%= link_to card_remove_path(card: card, deck: deck.id), remote: true do %>
+                  <i class='material-icons icon'>remove</i>
+                <% end %>
+                <%= link_to card_add_path(card: card, deck: deck.id), remote: true do %>
+                  <i class='material-icons icon'>add</i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class='card-body'>
+          <div>Rarity - <%= card['rarity'] %></div>
+          <div>Artist - <%= card['artist'] %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>  
+</div>

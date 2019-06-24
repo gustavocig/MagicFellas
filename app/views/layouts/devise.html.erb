@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MagicFellas</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="auth-body">
+    <div class="auth">
+      <div class="auth__box animated fadeInUp">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png', class: 'auth__logo' %>
+        <% end %>
+
+        <%= render 'shared/flash_messages' %>
+        
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -5,7 +5,7 @@
     </li>
 
     <li class="header__search omnisearch omnisearch--lighter omnisearch--square hide-mobile">
-      <%= form_tag search_path, method: :get, class: 'omnisearch__form' do %>
+      <%= form_tag cards_search_path, method: :get, class: 'omnisearch__form' do %>
         <%= text_field_tag :q, nil, class: 'omnisearch__input', placeholder: 'Search for cards' %>
         <i class="material-icons omnisearch__icon">search</i>
       <% end %>

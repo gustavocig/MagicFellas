@@ -27,3 +27,30 @@
   display: inline-block;
   padding: 8px 0px;
 }
+
+.active:hover {
+  background-color: #dddddd;
+}
+
+a#current-page {
+  color: orangered;
+  background-color: #cccccc;
+}
+
+.header {
+  background-color: black;
+  background-image: linear-gradient(135deg, rgba(241, 18, 18, 0.3), transparent)
+}
+
+.header__item.header__item--logo img {
+  height: 69px;
+  margin-top: -12px;
+}
+
+html .btn {
+  background-color: rgba(206, 76, 1, 0.78);
+}
+
+html .btn:hover {
+  background-color: rgba(148, 54, 0, 0.78);
+}

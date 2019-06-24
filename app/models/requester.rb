@@ -5,6 +5,9 @@ class Requester
   AUTOCOMPLETE_ENDPOINT = "#{CARDS_ENDPOINT}/autocomplete".freeze
   RANDOM_ENDPOINT = "#{CARDS_ENDPOINT}/random".freeze
 
+  SELECTED_PARAMS = %w[id name lang image_uris scryfall_uri mana_cost
+                       rarity artist prices]
+
   class << self
     def cards(options = {})
       options[:page] ||= 1
@@ -20,9 +23,16 @@ class Requester
       options[:page] ||= 1
       options = remove_params_except(options, %i[order dir page q])
 
-      JSON.parse(RestClient.get(SEARCH_ENDPOINT, params: options))
+      begin
+        request = RestClient.get(SEARCH_ENDPOINT, params: options)
+      rescue RestClient::NotFound
+        request = {}.to_json
+      end
+
+      JSON.parse(request)
     end
 
+    # TODO: Add the result from this request as a dropdown in the search bar via AJAX
     def autocomplete_card_search(card_name)
       options = { q: card_name }
       answer = RestClient.get(AUTOCOMPLETE_ENDPOINT, params: options)
@@ -32,6 +42,10 @@ class Requester
 
     def random_card
       JSON.parse(RestClient.get(RANDOM_ENDPOINT))
+    end
+
+    def formatted_request!(request)
+      request.slice! *SELECTED_PARAMS
     end
 
     def true_da_true
