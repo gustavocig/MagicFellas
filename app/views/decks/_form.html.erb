@@ -1,0 +1,6 @@
+<%= simple_form_for @resource do |f| %>
+  <%= f.input :name, autofocus: true %>
+  <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+
+  <%= f.button :submit %>
+<% end %>

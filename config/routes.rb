@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/remove_from_deck', to: 'cards#remove_from_deck', as: :card_remove
   get '/add_to_deck', to: 'cards#add_to_deck', as: :card_add
 
+  resources :decks
+
   namespace :api do
   	namespace :v1 do
       get 'users/deck_statistics', to: 'users#deck_statistics'

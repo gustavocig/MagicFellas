@@ -1,0 +1,5 @@
+<% content_for :breadcrumbs, link_to('Decks', decks_path) %>
+<% content_for :title, 'Edit Deck' %>
+<%= render 'form' %>
+
+<%= destroy_block deck_path, 'Delete' %>
