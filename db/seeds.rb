@@ -11,6 +11,6 @@ user = User.where(name: 'TeleFellas').first_or_create do |u|
   u.email = 'distribuidos@magic.com'
 end
 
-Deck.create user_id: user.id, cards: Requester.cards['data'].sample(60)
-Deck.create user_id: user.id, cards: Requester.cards['data'].sample(60)
-Deck.create user_id: user.id, cards: []
+Deck.create user_id: user.id, cards: Requester.cards['data'].sample(60), name: 'Deck 1'
+Deck.create user_id: user.id, cards: Requester.cards['data'].sample(60), name: 'Deck 2'
+Deck.create user_id: user.id, cards: [], name: 'Deck 3'
