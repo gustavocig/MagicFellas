@@ -1,4 +1,6 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @current_page = params[:page]&.to_i || 1
     
