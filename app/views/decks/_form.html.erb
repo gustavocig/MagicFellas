@@ -4,3 +4,30 @@
 
   <%= f.button :submit %>
 <% end %>
+
+
+<% if @resource.cards.any? %>
+  <h2>Cards</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Art</th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resource.cards.each do |card| %>
+        <tr>
+          <td>
+            <% if card['image_uris'].present? %>
+              <%= image_tag card['image_uris']['small'] %>
+            <% end %>
+          </td>
+          <td><%= card['name'] %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

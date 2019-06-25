@@ -27,6 +27,9 @@
           Welcome, <br/>
           <div class="ellipsis"><b><%= current_user.name %></b></div>
         </li>
+        <li class="header__menu-item">
+          <%= link_to 'Settings', settings_path %>
+        </li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="icon icon_close_alt icon--left"></i>
