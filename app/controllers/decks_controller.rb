@@ -1,4 +1,6 @@
 class DecksController < ApplicationController
+  before_action :authenticate_user!  
+
   include Crudable
 
   def index

@@ -13,7 +13,7 @@ class CardsController < ApplicationController
     format_cards! @cards['data']
     set_pagination
 
-    render 'user/index'
+    render 'users/index'
   end
 
   def search
@@ -28,7 +28,7 @@ class CardsController < ApplicationController
     format_cards! @cards['data']
     set_pagination
 
-    render 'user/index'
+    render 'users/index'
   end
 
   def add_to_deck
