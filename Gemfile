@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem "azure-storage", require: false
 
 gem 'cancancan'
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.7'
 gem 'dotenv-rails'
 
 gem 'freya', github: 'brunocavalcante/freya', ref: 'd1bff7c83d81a7cc1ef99402c5669fb0016bb335'
